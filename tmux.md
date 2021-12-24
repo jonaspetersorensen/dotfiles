@@ -1,5 +1,7 @@
 # TMUX
 
+## .bashrc
+
 Add to `.bashrc` to start up `mtux` with the current session name as tmux session name
 
 ```sh
@@ -32,4 +34,20 @@ if [ -z "$TMUX" -a "$TERM_PROGRAM" != "vscode" ] ; then
 fi
 ###############
 
+```
+
+## .tmux.conf
+
+To make tmux read changes in the config file then you have two options:
+a. Restart the tmux server `$  tmux kill-server` then restart a new tmux session
+b. Reload the config file from inside tmux by `CTRL+B` then press `:` to bring up tmux command prompt and run `:source-file ~/.tmux.conf`
+
+
+### Mouse support
+
+To enable mouse support by default then add the following to the tmux config file `.tmux.conf`
+
+```sh
+# Enable mouse support
+set -g mouse on
 ```
