@@ -2,7 +2,8 @@
 
 ## .bashrc
 
-Add to `.bashrc` to start up `mtux` with the current session name as tmux session name
+Add to `.bashrc` to start up `mtux` with the current session name as tmux session name  
+Thanks to [reddit/user/SooperBoby/](https://www.reddit.com/r/tmux/comments/ijafxg/bashrc_snippet_for_automatic_tmux_launch_with/)
 
 ```sh
 ### TMUX AUTOMATIC LAUNCH ###
@@ -39,8 +40,8 @@ fi
 ## .tmux.conf
 
 To make tmux read changes in the config file then you have two options:
-a. Restart the tmux server `$  tmux kill-server` then restart a new tmux session
-b. Reload the config file from inside tmux by `CTRL+B` then press `:` to bring up tmux command prompt and run `:source-file ~/.tmux.conf`
+- Restart the tmux server `$  tmux kill-server` then restart a new tmux session
+- Reload the config file from inside tmux by `CTRL+B` then press `:` to bring up tmux command prompt and run `:source-file ~/.tmux.conf`
 
 
 ### Mouse support
