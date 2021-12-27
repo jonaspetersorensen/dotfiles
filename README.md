@@ -28,6 +28,11 @@ Use case is WSL + Windows Terminal
 
 For instructions with pictures, see https://www.ceos3c.com/wsl-2/windows-terminal-customization-wsl2-deep-dive
 
+### My oh-my-posh customization
+
+- Font: [Mononoki Nerd Font](https://www.nerdfonts.com/font-downloads)
+- Theme: `~/.poshthemes/rudolfs-dark.omp.json`, [preview themes](https://ohmyposh.dev/docs/themes)
+
 
 ## Rust
 
