@@ -7,9 +7,12 @@ not always work that well for me due to the particulars of any given system and 
 
 ## Table of Contents
 
-Common:
+Base:
 - [Install pretty shell](./oh-my-posh.md)
 - [Install tmux](./tmux.md)
+- Install / Update default tools: run script `./update-all.sh`
+
+Languages:
 - [Install rust](./rust.md)
 
 WSL:
