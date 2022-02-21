@@ -9,8 +9,3 @@ sudo apt autoremove
 echo "------------------------------------"
 echo "Done."
 
-echo "Install tools and libs..."
-echo "------------------------------------"
-sudo apt -qq install unzip jq build-essential
-echo "------------------------------------"
-echo "All done!"
