@@ -1,0 +1,55 @@
+# In order to keep .bashrc as "clean" as possible I have separated out my own custom settings into this file.
+# Intended usage is to call this file at the end of .bashrc
+
+### PATH
+export PATH="$HOME/.local/bin:$PATH"
+##################################################################
+
+### TMUX
+if [ -z "$TMUX" -a "$TERM_PROGRAM" != "vscode" ] ; then
+
+	TERMINAL_EMULATOR="$(basename $(tty))"
+	TERMINAL_EMULATOR=${TERMINAL_EMULATOR^^} # Uppercase all letters
+
+	TERMINAL_PROCESS="$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))"
+
+	if [ -x "$TERMINAL_PROCESS" ] ; then
+		TERMINAL_EMULATOR=$(basename "$TERMINAL_PROCESS")
+		TERMINAL_EMULATOR=${TERMINAL_EMULATOR^} # Uppercase first letter
+	elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+		TERMINAL_EMULATOR="SSH"
+	fi
+
+	for i in $(seq -w 1 100) ; do
+		if [ "$i" -eq 001 ] ; then
+			SESSION_NAME="$TERMINAL_EMULATOR"
+		else
+			SESSION_NAME="$TERMINAL_EMULATOR-$i"
+		fi
+
+		if (exec tmux new -s "$SESSION_NAME") ; then
+			break
+		fi
+	done
+fi
+##################################################################
+
+### OH MY POSH
+eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/rudolfs-dark.omp.json)"
+##################################################################
+
+### RUST
+. "$HOME/.cargo/env"
+##################################################################
+
+### ALIAS
+alias usbip=/usr/lib/linux-tools/5.4.0-77-generic/usbip
+##################################################################
+
+### KEYCHAIN (manager for ssh-agent)
+/usr/bin/keychain --nogui --quiet $HOME/.ssh/*_id_rsa
+[ -f $HOME/.ssh/*.pem ] && /usr/bin/keychain --nogui --quiet $HOME/.ssh/*.pem
+source $HOME/.keychain/kosekroken-sh
+##################################################################
+
+
