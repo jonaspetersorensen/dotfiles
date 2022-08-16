@@ -2,7 +2,7 @@
 
 ## .bashrc
 
-Add to `.bashrc` to start up `mtux` with the current session name as tmux session name  
+Add to `.bashrc_extras` to start up `mtux` with the current session name as tmux session name  
 Thanks to [reddit/user/SooperBoby/](https://www.reddit.com/r/tmux/comments/ijafxg/bashrc_snippet_for_automatic_tmux_launch_with/)
 
 ```sh

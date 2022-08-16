@@ -3,11 +3,11 @@
 `Oh My Posh` is a very simple, yet effective way to style any shell.  
 For my use case it eliminates the need for Oh My ZSH + themes as I really do not use zsh that much.
 
-### WSL
+## WSL
 
 Use case is WSL + Windows Terminal
 
-1. In WSL, run [Oh My Posh linux installation](https://ohmyposh.dev/docs/linux)  
+1. In WSL, run [Oh My Posh linux installation](https://ohmyposh.dev/docs/installation/linux)  
    Follow the default installation as it easy to change theme after initial installation has completed.  
    - For changing themes, see https://ohmyposh.dev/docs/themes
 1. In windows, install [MESLO LGM Nerd Font](https://www.nerdfonts.com/font-downloads) (recommended font by Oh My Posh)
@@ -23,7 +23,20 @@ Use case is WSL + Windows Terminal
 
 For instructions with pictures, see https://www.ceos3c.com/wsl-2/windows-terminal-customization-wsl2-deep-dive
 
-### My oh-my-posh customization
 
-- Font: [Mononoki Nerd Font](https://www.nerdfonts.com/font-downloads)
-- Theme: `~/.poshthemes/rudolfs-dark.omp.json`, [preview themes](https://ohmyposh.dev/docs/themes)
+## My oh-my-posh customization
+
+- Font: [Mononoki Nerd Font](https://www.nerdfonts.com/font-downloads)  
+  Configure: windows terminal settings, ubuntu profile, apperance, fonts
+- Theme: `~/.poshthemes/rudolfs-dark.omp.json`, [preview themes](https://ohmyposh.dev/docs/themes)  
+  Configuration:  
+  1. Edit `.bashrc_extras`
+  1. Add or edit link to theme 
+     ```sh
+     ### OH MY POSH
+     eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/rudolfs-dark.omp.json)"
+     ```
+
+
+
+

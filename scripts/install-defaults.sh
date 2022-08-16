@@ -7,6 +7,6 @@ fi
 
 echo "Install tools and libs..."
 echo "------------------------------------"
-sudo apt -qq install unzip jq build-essential tmux
+sudo apt -qq install unzip jq build-essential tmux keychain
 echo "------------------------------------"
 echo "All done!"
