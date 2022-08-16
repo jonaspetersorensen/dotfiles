@@ -7,19 +7,30 @@ not always work that well for me due to the particulars of any given system and 
 
 ## Table of Contents
 
-Base:
+Install and customization:
+- [Base installation](#base-installation)
+- [How to customize .bashrc](#how-to-customize-bashrc)
+- [How to manage ssh](#how-to-manage-ssh)
+
+Misc
+- [Docs](#docs)
+
+
+## Base installation
 1. Update to latest: `. ./scripts/update-all.sh`
 1. Install default tools: run script `. ./scripts/install-defaults.sh`
 1. Add custom settings to `.bashrc`, see [instructions](#how-to-customize-bashrc)
-1. [Add ssh keys](#ssh)
-1. [Install pretty shell](./oh-my-posh.md)
+1. [Add ssh keys](#how-to-manage-ssh)
+1. (WSL) [Install pretty shell](./oh-my-posh.md)
 1. [Install tmux](./tmux.md)  
    1. Then copy config file `./configs/.tmux.conf` to `~/.tmux.conf`
 
 Languages:
 - [Install rust](./rust.md)
 
-WSL:
+
+## Docs
+
 - [Connect USB device to WSL2 via network](./wsl-usb.md#Connect-USB-device-to-WSL2-via-network)
 
 
@@ -38,7 +49,7 @@ All custom settings are stored in a separate file `.bashrc_extras` in order to k
 1. Done!
 
 
-## SSH
+## How to manage ssh
 
 I use [keychain](https://www.funtoo.org/Funtoo:Keychain) for easier management of ssh keys.  
 Install and settings are handled by default install and bashrc extras.
