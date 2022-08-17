@@ -68,6 +68,7 @@ Works out of the box:
 
 Require installation
 - [Enabling GPU acceleration on Ubuntu on WSL2 with the NVIDIA CUDA Platform](https://ubuntu.com/tutorials/enabling-gpu-acceleration-on-ubuntu-on-wsl2-with-the-nvidia-cuda-platform)
+- `sudo apt install x11-xserver-utils` so you can use things like `xhost`
 
 
 
