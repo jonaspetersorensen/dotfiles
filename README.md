@@ -11,6 +11,7 @@ Install and customization:
 - [Base installation](#base-installation)
 - [How to customize .bashrc](#how-to-customize-bashrc)
 - [How to manage ssh](#how-to-manage-ssh)
+- [Graphics and CUDA support](#graphics-and-cuda-support)
 
 Misc
 - [Docs](#docs)
@@ -58,6 +59,15 @@ Install and settings are handled by default install and bashrc extras.
 1. Set permissions: run script `. ./scripts/set-ssh-permissions.sh`
 1. Done!
 
+
+## Graphics and CUDA support
+
+Works out of the box:
+- Graphics are enabled via [WSLg] by default on win 11. It use a vGPU behinds the sceen and then open a window on the host via FreeRDP
+- [WSL2 gpu support in docker for nvidia gpus](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
+
+Require installation
+- [Enabling GPU acceleration on Ubuntu on WSL2 with the NVIDIA CUDA Platform](https://ubuntu.com/tutorials/enabling-gpu-acceleration-on-ubuntu-on-wsl2-with-the-nvidia-cuda-platform)
 
 
 
