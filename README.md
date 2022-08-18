@@ -93,6 +93,18 @@ You should not need to install nvidia container toolkit.
 The internetz says it has hardcoded dependencies on x11 versions and driver versions which will turn into a mess.
 
 
+## Docker
+
+### Docker desktop failed to stop
+
+Sometimes installs in wsl (like nvidia-container-tools) can mess up the docker wsl distro which will set docker in a bad state.  
+
+Fix:
+1. Close docker desktop
+1. Unregister the docker wsl distro: 
+   1. In windows, open a cmd as admin and run `wslconfig.exe /u docker-desktop`
+1. Start docker desktop
+
 
 
 
