@@ -96,7 +96,8 @@ The internetz says it has hardcoded dependencies on x11 versions and driver vers
 
 ##### docker-compose + CUDA
 
-To enable gpus then define gpu as a capability under the `deploy` tag.
+To enable gpus then define gpu as a capability under the `deploy` tag.  
+[docs](https://docs.docker.com/compose/gpu-support/)
 
 ```sh
 # Example docker-compose.yaml
