@@ -12,6 +12,7 @@ Install and customization:
 - [How to customize .bashrc](#how-to-customize-bashrc)
 - [How to manage ssh](#how-to-manage-ssh)
 - [Graphics and CUDA support](#graphics-and-cuda-support)
+- [Docker](#docker)
 
 Misc
 - [Docs](#docs)
