@@ -63,17 +63,24 @@ Install and settings are handled by default install and bashrc extras.
 ## Graphics and CUDA support
 
 ### Works out of the box
+
 - [Run Linux GUI apps on the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)  
   Graphics are enabled via [WSLg] by default on win 11. It use a vGPU behinds the sceen and then open a window on the host via FreeRDP.
 
 ### Require installation
 
-CUDA
-- [Get started with GPU acceleration for ML in WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute)  
-  You can verify installation by running the machine learning framework container and sample as described on that same page.
-
-x11
+#### x11
 - `sudo apt install x11-xserver-utils` so you can use things like `xhost`
+
+#### CUDA
+1. Follow the manual installation steps in nvidia doc [CUDA on WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl)
+   1. Remove old key as instructed
+   1. Then run "Option 1: Installation of Linux x86 CUDA Toolkit using WSL-Ubuntu Package – Recommended"
+   1. Done!
+1. Docker should work with CUDA out of the box with the latest version of Docker installed on win11 as described in [WSL 2 GPU Support for Docker Desktop on NVIDIA GPUs](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
+1. You can verify CUDA installation by running the machine learning framework container and sample as described on [Get started with GPU acceleration for ML in WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute)
+
+
 
 
 
