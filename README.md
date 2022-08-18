@@ -63,13 +63,13 @@ Install and settings are handled by default install and bashrc extras.
 ## Graphics and CUDA support
 
 ### Works out of the box
-- Graphics are enabled via [WSLg] by default on win 11. It use a vGPU behinds the sceen and then open a window on the host via FreeRDP
-- [WSL2 gpu support in docker for nvidia gpus](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
+- [Run Linux GUI apps on the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)  
+  Graphics are enabled via [WSLg] by default on win 11. It use a vGPU behinds the sceen and then open a window on the host via FreeRDP.
 
 ### Require installation
 
 CUDA
-- [Enabling GPU acceleration on Ubuntu on WSL2 with the NVIDIA CUDA Platform](https://ubuntu.com/tutorials/enabling-gpu-acceleration-on-ubuntu-on-wsl2-with-the-nvidia-cuda-platform)
+- [Get started with GPU acceleration for ML in WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute) 
 
 x11
 - `sudo apt install x11-xserver-utils` so you can use things like `xhost`
