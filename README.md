@@ -69,7 +69,8 @@ Install and settings are handled by default install and bashrc extras.
 ### Require installation
 
 CUDA
-- [Get started with GPU acceleration for ML in WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute) 
+- [Get started with GPU acceleration for ML in WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute)  
+  You can verify installation by running the machine learning framework container and sample as described on that same page.
 
 x11
 - `sudo apt install x11-xserver-utils` so you can use things like `xhost`
