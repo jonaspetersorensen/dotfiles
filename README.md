@@ -89,6 +89,8 @@ Docker + CUDA
    docker run -it --gpus=all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark
    ```
 
+You should not need to install nvidia container toolkit.  
+The internetz says it has hardcoded dependencies on x11 versions and driver versions which will turn into a mess.
 
 
 
