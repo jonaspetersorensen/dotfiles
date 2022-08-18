@@ -82,15 +82,34 @@ Go to Nvidia for updated instructions (see below).
    1. Then run "Option 1: Installation of Linux x86 CUDA Toolkit using WSL-Ubuntu Package – Recommended"
    1. Done!
 
-Docker + CUDA
+##### Docker + CUDA
 1. Docker should work with CUDA out of the box with the latest version of Docker installed on win11 as described in [WSL 2 GPU Support for Docker Desktop on NVIDIA GPUs](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
 1. You can verify CUDA installation by running the examples found in the page above, or simply run CUDA benchmark like so:  
    ```sh
    docker run -it --gpus=all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark
    ```
 
+Note that the parameter `--gpus=all` is the way to tell docker to use gpu, otherwise it will just use the cpu.
+
 You should not need to install nvidia container toolkit.  
 The internetz says it has hardcoded dependencies on x11 versions and driver versions which will turn into a mess.
+
+##### docker-compose + CUDA
+
+To enable gpus then define gpu as a capability under the `deploy` tag.
+
+```sh
+# Example docker-compose.yaml
+
+demo:
+   build: something
+   command: something
+   deploy:
+      resources:
+         reservations:
+            devices:
+               - capabilities: [gpu]
+```
 
 
 ## Docker
