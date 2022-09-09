@@ -82,6 +82,9 @@ Go to Nvidia for updated instructions (see below).
    1. Remove old key as instructed
    1. Then run "Option 1: Installation of Linux x86 CUDA Toolkit using WSL-Ubuntu Package – Recommended"
    1. Done!
+   
+If you later get the error message `libcuda.so.1 is not a symbolic link` then you fix this in windows as described [here](https://github.com/microsoft/WSL/issues/5663#issuecomment-1068499676)
+
 
 ##### Docker + CUDA
 1. Docker should work with CUDA out of the box with the latest version of Docker installed on win11 as described in [WSL 2 GPU Support for Docker Desktop on NVIDIA GPUs](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
