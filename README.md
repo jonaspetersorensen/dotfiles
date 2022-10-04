@@ -76,7 +76,8 @@ Install and settings are handled by default install and bashrc extras.
 #### CUDA
 
 **DO NOT** follow the install instructions as described in MS docs [Get started with GPU acceleration for ML in WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute), they are outdated.  
-Go to Nvidia for updated instructions (see below).
+Go to Nvidia for updated instructions (see below).  
+The main challenge with CUDA on WSL is that the default Ubuntu package for CUDA Toolkit comes with a driver. This driver will overwrite the link to the windows driver. The solution is to install a WSL-Ubuntu specific package for CUDA toolkit directly from Nvidia.
 
 1. Follow the manual installation steps in nvidia doc [CUDA on WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl)
    1. Remove old key as instructed
