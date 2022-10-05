@@ -13,6 +13,7 @@ Install and customization:
 - [How to manage ssh](#how-to-manage-ssh)
 - [Graphics and CUDA support](#graphics-and-cuda-support)
 - [Docker](#docker)
+- [Compacting to free up space](#compacting-to-free-up-space)
 
 Misc
 - [Docs](#docs)
@@ -131,8 +132,12 @@ Fix:
 1. Start docker desktop
 
 
+## Compacting to free up space
 
+WSL2 lives inside a virtual disk which is usually stored by windows in a `ext4.vhdx` file.  
+This file will grow over time even if contents inside WSL2 are deleted. This "feature" is one of the small quirks of virtual file systems, they tend to eat up space on the host system usage over time goes up.  
+You can reclaim this space by trimming the `.vhdx` file.
 
-
-
+1. See post from [iuriguilherme](https://github.com/microsoft/WSL/issues/4699#issuecomment-1136319012)
+1. See post from [MS](https://learn.microsoft.com/en-us/windows/wsl/vhd-size)
 
