@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # http://www.graphicsmagick.org/
 # Unfortunately this is not a single install

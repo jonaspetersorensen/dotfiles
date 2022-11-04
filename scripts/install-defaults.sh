@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 file=./update-all.sh
 if [ -f "$file" ]; then
