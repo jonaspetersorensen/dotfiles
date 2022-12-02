@@ -1,6 +1,6 @@
 # dotfiles
 
-Simple dotfile repo for my short lived ubuntu installations.  
+Simple dotfile repo for my short lived installations, mainly in wsl2 + ubuntu.  
 That said, this repo is more for misc install instructions, as a pure dotfile repo where I simply copy the same dotfiles to new installs does
 not always work that well for me due to the particulars of any given system and use case.
 
