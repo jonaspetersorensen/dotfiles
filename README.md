@@ -89,6 +89,7 @@ If you later get the error message `libcuda.so.1 is not a symbolic link` then yo
 
 
 ##### Docker + CUDA
+1. Install [nvidia container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
 1. Docker should work with CUDA out of the box with the latest version of Docker installed on win11 as described in [WSL 2 GPU Support for Docker Desktop on NVIDIA GPUs](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
 1. You can verify CUDA installation by running the examples found in the page above, or simply run CUDA benchmark like so:  
    ```sh
@@ -97,8 +98,6 @@ If you later get the error message `libcuda.so.1 is not a symbolic link` then yo
 
 Note that the parameter `--gpus=all` is the way to tell docker to use gpu, otherwise it will just use the cpu.
 
-You should not need to install nvidia container toolkit.  
-The internetz says it has hardcoded dependencies on x11 versions and driver versions which will turn into a mess.
 
 ##### docker-compose + CUDA
 
