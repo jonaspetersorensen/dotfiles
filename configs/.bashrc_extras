@@ -50,7 +50,7 @@ alias usbip=/usr/lib/linux-tools/5.4.0-77-generic/usbip
 [ -f $HOME/.ssh/id_* ] && /usr/bin/keychain --nogui --quiet $HOME/.ssh/id_*
 [ -f $HOME/.ssh/*_id_rsa ] && /usr/bin/keychain --nogui --quiet $HOME/.ssh/*_id_rsa
 [ -f $HOME/.ssh/*.pem ] && /usr/bin/keychain --nogui --quiet $HOME/.ssh/*.pem
-source $HOME/.keychain/kosekroken-sh
+source "$HOME/.keychain/$(hostname)-sh"
 ##################################################################
 
 
