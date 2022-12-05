@@ -76,13 +76,13 @@ Install and settings are handled by default install and bashrc extras.
 
 #### CUDA
 
-**DO NOT** follow the install instructions as described in MS docs [Get started with GPU acceleration for ML in WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute), they are outdated.  
 Go to Nvidia for updated instructions (see below).  
 The main challenge with CUDA on WSL is that the default Ubuntu package for CUDA Toolkit comes with a driver. This driver will overwrite the link to the windows driver. The solution is to install a WSL-Ubuntu specific package for CUDA toolkit directly from Nvidia.
 
 1. Follow the manual installation steps in nvidia doc [CUDA on WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl)
    1. Remove old key as instructed
-   1. Then run "Option 1: Installation of Linux x86 CUDA Toolkit using WSL-Ubuntu Package – Recommended"
+   1. Then run "Option 1: Installation of Linux x86 CUDA Toolkit using WSL-Ubuntu Package – Recommended"  
+      If `gpg` hangs then modify the command to say `gpg --no-use-agent` as it is most likely wsl/ubuntu waiting for the agent to start up. 
    1. Done!
    
 If you later get the error message `libcuda.so.1 is not a symbolic link` then you fix this in windows as described [here](https://github.com/microsoft/WSL/issues/5663#issuecomment-1068499676)
@@ -92,7 +92,7 @@ If you later get the error message `libcuda.so.1 is not a symbolic link` then yo
 1. Docker should work with CUDA out of the box with the latest version of Docker installed on win11 as described in [WSL 2 GPU Support for Docker Desktop on NVIDIA GPUs](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
 1. You can verify CUDA installation by running the examples found in the page above, or simply run CUDA benchmark like so:  
    ```sh
-   docker run -it --gpus=all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark
+   docker run --rm --gpus=all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
    ```
 
 Note that the parameter `--gpus=all` is the way to tell docker to use gpu, otherwise it will just use the cpu.
