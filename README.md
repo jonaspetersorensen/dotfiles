@@ -80,12 +80,31 @@ Go to Nvidia for updated instructions (see below).
 The main challenge with CUDA on WSL is that the default Ubuntu package for CUDA Toolkit comes with a driver. This driver will overwrite the link to the windows driver. The solution is to install a WSL-Ubuntu specific package for CUDA toolkit directly from Nvidia.
 
 1. Follow the manual installation steps in nvidia doc [CUDA on WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl)
-   1. Remove old key as instructed
-   1. Then run "Option 1: Installation of Linux x86 CUDA Toolkit using WSL-Ubuntu Package – Recommended"  
-      If `gpg` hangs then modify the command to say `gpg --no-use-agent` as it is most likely wsl/ubuntu waiting for the agent to start up. 
-   1. Done!
-   
-If you later get the error message `libcuda.so.1 is not a symbolic link` then you fix this in windows as described [here](https://github.com/microsoft/WSL/issues/5663#issuecomment-1068499676)
+1. Remove old key as instructed
+1. Then run "Option 1: Installation of Linux x86 CUDA Toolkit using WSL-Ubuntu Package – Recommended"  
+   If `gpg` hangs then modify the command to say `gpg --no-use-agent` as it is most likely wsl/ubuntu waiting for the agent to start up. 
+1. Done!
+
+##### `libcuda.so.1 is not a symbolic link`
+
+Updating the nvidia driver in windows can sometimes mess with the symbolic links that WSL depend on. 
+
+The fix is to recreate the links in windows, then update links in wsl like so:
+1. Run CMD in Windows (as Administrator)
+   ```sh
+   C:
+   cd \Windows\System32\lxss\lib
+   del libcuda.so
+   del libcuda.so.1
+   mklink libcuda.so libcuda.so.1.1
+   mklink libcuda.so.1 libcuda.so.1.1
+   ```
+2. Open WSL bash
+   ```sh
+   sudo ldconfig
+   ```
+   If this last command fail then restart wsl and run it again.  
+
 
 
 ##### Docker + CUDA
