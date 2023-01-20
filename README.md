@@ -159,3 +159,13 @@ You can reclaim this space by trimming the `.vhdx` file.
 1. See post from [iuriguilherme](https://github.com/microsoft/WSL/issues/4699#issuecomment-1136319012)
 1. See post from [MS](https://learn.microsoft.com/en-us/windows/wsl/vhd-size)
 
+`diskpart` is available in all windows distros
+
+```sh
+diskpart
+select vdisk file="C:\Users\<user>\AppData\local\Docker\wsl\data\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+```
+
