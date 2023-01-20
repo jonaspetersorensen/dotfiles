@@ -167,5 +167,6 @@ select vdisk file="C:\Users\<user>\AppData\local\Docker\wsl\data\ext4.vhdx"
 attach vdisk readonly
 compact vdisk
 detach vdisk
+exit
 ```
 
