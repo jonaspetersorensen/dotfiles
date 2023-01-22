@@ -12,6 +12,7 @@ Install and customization:
 - [How to customize .bashrc](#how-to-customize-bashrc)
 - [How to manage ssh](#how-to-manage-ssh)
 - [Graphics and CUDA support](#graphics-and-cuda-support)
+  - [docker cuda test images](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
 - [Docker](#docker)
 - [Compacting to free up space](#compacting-to-free-up-space)
 
