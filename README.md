@@ -12,7 +12,7 @@ Install and customization:
 - [How to customize .bashrc](#how-to-customize-bashrc)
 - [How to manage ssh](#how-to-manage-ssh)
 - [Graphics and CUDA support](#graphics-and-cuda-support)
-  - [docker cuda test images](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
+  - [docker + cuda](#docker+cuda)
 - [Docker](#docker)
 - [Compacting to free up space](#compacting-to-free-up-space)
 
@@ -111,9 +111,13 @@ The fix is to recreate the links in windows, then update links in wsl like so:
 ##### Docker + CUDA
 1. Install [nvidia container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
 1. Docker should work with CUDA out of the box with the latest version of Docker installed on win11 as described in [WSL 2 GPU Support for Docker Desktop on NVIDIA GPUs](https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/)
-1. You can verify CUDA installation by running the examples found in the page above, or simply run CUDA benchmark like so:  
+1. You can verify CUDA installation by running the examples found in the page above, or simply run CUDA benchmark like so (run both to be sure):  
    ```sh
    docker run --rm --gpus=all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+   ```
+   and 
+   ```sh
+   docker run -it --gpus=all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark
    ```
 
 Note that the parameter `--gpus=all` is the way to tell docker to use gpu, otherwise it will just use the cpu.
