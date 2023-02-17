@@ -35,11 +35,11 @@ fi
 ##################################################################
 
 ### OH MY POSH
-eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/rudolfs-dark.omp.json)"
+eval "$(oh-my-posh --init --shell bash --config $HOME/.poshthemes/rudolfs-dark.omp.json)"
 ##################################################################
 
 ### RUST
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 ##################################################################
 
 ### ALIAS
@@ -47,9 +47,11 @@ alias usbip=/usr/lib/linux-tools/5.4.0-77-generic/usbip
 ##################################################################
 
 ### KEYCHAIN (manager for ssh-agent)
-[[ -f "$HOME/.ssh/id_*" ]] && /usr/bin/keychain --nogui --quiet $HOME/.ssh/id_*
-[[ -f "$HOME/.ssh/*_id_rsa" ]] && /usr/bin/keychain --nogui --quiet $HOME/.ssh/*_id_rsa
-[[ -f "$HOME/.ssh/*.pem" ]] && /usr/bin/keychain --nogui --quiet $HOME/.ssh/*.pem
+shopt -s nullglob
+for key in "$HOME/.ssh/id_*"; do /usr/bin/keychain --nogui --quiet $key; done
+for key in "$HOME/.ssh/*_id_rsa"; do /usr/bin/keychain --nogui --quiet $key; done
+for key in "$HOME/.ssh/*.pem"; do /usr/bin/keychain --nogui --quiet $key; done
+shopt -u nullglob
 source "$HOME/.keychain/$(hostname)-sh"
 ##################################################################
 
