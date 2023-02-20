@@ -47,11 +47,21 @@ alias usbip=/usr/lib/linux-tools/5.4.0-77-generic/usbip
 ##################################################################
 
 ### KEYCHAIN (manager for ssh-agent)
-shopt -s nullglob
-for key in "$HOME/.ssh/id_*"; do /usr/bin/keychain --nogui --quiet $key; done
-for key in "$HOME/.ssh/*_id_rsa"; do /usr/bin/keychain --nogui --quiet $key; done
-for key in "$HOME/.ssh/*.pem"; do /usr/bin/keychain --nogui --quiet $key; done
-shopt -u nullglob
+function addKeyToKeychain()
+{
+	# Input $1 = Filepath pattern
+	for key in $1
+	do
+		# Test if glob is not empty
+		if stat -t $key >/dev/null 2>&1; then
+			/usr/bin/keychain --nogui --quiet $key
+			#echo "Key added to keychain: $key"
+		fi
+	done
+}
+addKeyToKeychain "$HOME/.ssh/id_*"
+addKeyToKeychain "$HOME/.ssh/*_id_rsa"
+addKeyToKeychain "$HOME/.ssh/*.pem"
 source "$HOME/.keychain/$(hostname)-sh"
 ##################################################################
 
