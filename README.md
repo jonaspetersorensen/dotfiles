@@ -15,6 +15,7 @@ Install and customization:
   - [Docker + CUDA](#docker--cuda)
 - [Docker](#docker)
 - [Compacting to free up space](#compacting-to-free-up-space)
+- [Mount external and network drives](#mount-external-and-network-drives)
 
 Misc
 - [Docs](#docs)
@@ -184,3 +185,27 @@ detach vdisk
 exit
 ```
 
+## Mount external and network drives
+
+Note: Mounting works for _drives_.  
+To access usb devices like microcontrollers etc then use _usbipd_.
+
+
+### Mount usb drive
+
+Examle where the drive is available under `f:` in windows
+
+```sh
+# WSL
+sudo mkdir /mnt/f
+sudo mount -t drvfs f: /mnt/f
+```
+### Mount network drive
+
+Example where networked storage is already showing in Windows under `\\server\share`
+
+```sh
+# WSL
+sudo mkdir /mnt/share
+sudo mount -t drvfs '\\server\share' /mnt/share
+```
