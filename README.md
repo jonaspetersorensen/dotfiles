@@ -209,3 +209,11 @@ Example where networked storage is already showing in Windows under `\\server\sh
 sudo mkdir /mnt/share
 sudo mount -t drvfs '\\server\share' /mnt/share
 ```
+
+## x11
+
+Access control seems to be disabled in WSL as `xhost` will print the following:  
+```text
+access control disabled, clients can connect from any host
+SI:localuser:wslg
+```
