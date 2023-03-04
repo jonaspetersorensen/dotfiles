@@ -16,6 +16,7 @@ Install and customization:
 - [Docker](#docker)
 - [Compacting to free up space](#compacting-to-free-up-space)
 - [Mount external and network drives](#mount-external-and-network-drives)
+- [x11](#x11)
 
 Misc
 - [Docs](#docs)
