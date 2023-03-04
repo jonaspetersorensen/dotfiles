@@ -16,7 +16,7 @@ Install and customization:
 - [Docker](#docker)
 - [Compacting to free up space](#compacting-to-free-up-space)
 - [Mount external and network drives](#mount-external-and-network-drives)
-- [x11](#x11)
+- [WSL and GUI apps](#WSL-and-GUI-apps)
 
 Misc
 - [Docs](#docs)
@@ -211,7 +211,7 @@ sudo mkdir /mnt/share
 sudo mount -t drvfs '\\server\share' /mnt/share
 ```
 
-## x11
+## WSL and GUI apps
 
 Access control seems to be disabled in WSL as `xhost` will print the following:  
 ```text
