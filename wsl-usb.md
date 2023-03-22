@@ -15,8 +15,10 @@ Install `usbipd-win`:
 1. Connect device to usb so that windows can find it
 1. Attach (or detach) device to wsl via **windows command prompt (admin)**:  
    ```sh
-   usbipd wsl list # List all usb devices in windows
-   usbipd wsl attach --busid x-x # Attach device with BUSID=x-x to default distro
+   # List all usb devices in windows
+   usbipd wsl list
+   # Attach device with BUSID=x-x to default distro, and reattach when connection is lost (handy for arduino rebooting etc)
+   usbipd wsl attach --auto-attach --busid x-x
    ```
 1. Verify that device is available in **linux shell**:  
    ```sh
