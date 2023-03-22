@@ -43,7 +43,9 @@ eval "$(oh-my-posh --init --shell bash --config $HOME/.poshthemes/rudolfs-dark.o
 ##################################################################
 
 ### ALIAS
-alias usbip=/usr/lib/linux-tools/5.4.0-77-generic/usbip
+
+# None...
+
 ##################################################################
 
 ### KEYCHAIN (manager for ssh-agent)
