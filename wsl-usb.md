@@ -9,6 +9,9 @@ Install `usbipd-win`:
    1. Install package
    1. Update sudoers
    1. Add alias to shell config
+ 1. Update udev rules for devices
+    1.Copy [OpenOCD/contrib/60-openocd.rules](https://github.com/arduino/OpenOCD/blob/c404ff5d3a2ec568daa106455845dd403b08dab4/contrib/60-openocd.rules) file to /etc/udev/rules.d/
+    1. Reload udev `sudo udevadm control --reload`
 
 ### How to use `usbpid-win`
 
