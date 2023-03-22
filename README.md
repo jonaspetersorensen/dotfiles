@@ -17,6 +17,7 @@ Install and customization:
 - [Compacting to free up space](#compacting-to-free-up-space)
 - [Mount external and network drives](#mount-external-and-network-drives)
 - [WSL and GUI apps](#WSL-and-GUI-apps)
+- [Serial over USB](#serial-over-usb)
 
 Misc
 - [Docs](#docs)
@@ -218,3 +219,22 @@ Access control seems to be disabled in WSL as `xhost` will print the following:
 access control disabled, clients can connect from any host
 SI:localuser:wslg
 ```
+This means there is no point fiddling with `xhost + something` in WSL.
+
+## Serial over USB
+
+Example use case: read serial output from an arduino nano.  
+
+This works quite well when using `usbipd-win`.  
+You can inspect the traffic in linux terminal using the tool `minicom`.
+
+Install and configure minicom for usb:
+1. Install package `sudo apt install minicom`
+1. First check with dmesg | grep tty if system recognize your adapter 
+1. Then try to run minicom with `sudo minicom -s`, go to "Serial port setup" and change the first line to `/dev/ttyUSB0`
+1. Finally save config as default with "Save setup as dfl"
+
+Connect minicom to device:
+1. `sudo minicom --device /dev/ttyUSB0`
+1. Select "comm Paramenters" and speed to what ever the device is using
+1. You should now see output from device
