@@ -245,6 +245,11 @@ Connect minicom to device:
 This comes into play when you want to access misc USB stuff or other devices.  
 The `/dev` directory is recreated at every boot, so any settings via `chmod` will vanish.  
 
+Normally the group `dialout` should be the owner for serial devices.  
+Unfortunately there is a bug in WSL2 where group `root` is the only owner, ref [microsoft/WSL/issues/9247](https://github.com/microsoft/WSL/issues/9247).  
+Use `chmod` option until fixed in WSL to avoid breaking stuff.
+
+
 ### Option: Use chmod before every time you want to use the device  
 
 This setting will not survive reboot.
@@ -255,7 +260,7 @@ sudo chmod a+rw /dev/ttyACM0
 
 ### Option: Join group that owns `/dev/tty*`
 
-This setting is permanent.
+This setting is permanent.  
 
 ```sh
 # Find owner group. If this is root then we should not add users to it...
