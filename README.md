@@ -18,6 +18,7 @@ Install and customization:
 - [Mount external and network drives](#mount-external-and-network-drives)
 - [WSL and GUI apps](#WSL-and-GUI-apps)
 - [Serial over USB](#serial-over-usb)
+- [Permissions for devices under `/dev/tty*`](#permissions-for-devices-under-devtty)
 
 Misc
 - [Docs](#docs)
@@ -267,5 +268,5 @@ This setting is permanent.
 ls -l /dev/ttyACM0
 
 # Add user to group. BEWARE: check group first, do not join root!
-sudo adduser $USER $(stat --format="%G" /dev/ttyACM0 )
+sudo adduser $USER $(stat --format="%G" /dev/ttyACM0)
 ```
