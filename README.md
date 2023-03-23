@@ -238,3 +238,29 @@ Connect minicom to device:
 1. `sudo minicom --device /dev/ttyUSB0`
 1. Select "comm Paramenters" and speed to what ever the device is using
 1. You should now see output from device
+
+
+## Permissions for devices under `/dev/tty*`
+
+This comes into play when you want to access misc USB stuff or other devices.  
+The `/dev` directory is recreated at every boot, so any settings via `chmod` will vanish.  
+
+### Option: Use chmod before every time you want to use the device  
+
+This setting will not survive reboot.
+
+```sh
+sudo chmod a+rw /dev/ttyACM0
+```
+
+### Option: Join group that owns `/dev/tty*`
+
+This setting is permanent.
+
+```sh
+# Find owner group. If this is root then we should not add users to it...
+ls -l /dev/ttyACM0
+
+# Add user to group. BEWARE: check group first, do not join root!
+sudo adduser $USER $(stat --format="%G" /dev/ttyACM0 )
+```
