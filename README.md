@@ -230,7 +230,7 @@ You can inspect the traffic in linux terminal using the tool `minicom`.
 
 Install and configure minicom for usb:
 1. Install package `sudo apt install minicom`
-1. First check with dmesg | grep tty if system recognize your adapter 
+1. First check with `dmesg | grep tty` if system recognize your adapter 
 1. Then try to run minicom with `sudo minicom -s`, go to "Serial port setup" and change the first line to `/dev/ttyUSB0`
 1. Finally save config as default with "Save setup as dfl"
 
