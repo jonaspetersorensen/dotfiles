@@ -11,3 +11,7 @@ sudo update-alternatives --install /usr/local/bin/usbip usbip `ls /usr/lib/linux
 echo "------------------------------------"
 echo "Done."
 
+# Enable tmux again by removing the flag
+if [ -f "$HOME/TMUX_UPDATE_IN_PROGRESS" ]; then
+   rm "$HOME/TMUX_UPDATE_IN_PROGRESS"
+fi
