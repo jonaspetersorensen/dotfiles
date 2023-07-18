@@ -1,10 +1,12 @@
 # In order to keep .bashrc as "clean" as possible I have separated out my own custom settings into this file.
 # Intended usage is to call this file at the end of .bashrc
 
+##################################################################
 ### PATH
 export PATH="$HOME/.local/bin:$PATH"
 ##################################################################
 
+##################################################################
 ### TMUX
 # Do not restart tmux if an update is in progress.
 # The update script will use an empty file "TMUX_UPDATE_IN_PROGRESS" as flag so that any session can read it
@@ -40,20 +42,25 @@ if [ ! -f "$HOME/TMUX_UPDATE_IN_PROGRESS" ]; then
 fi
 ##################################################################
 
+##################################################################
 ### OH MY POSH
 eval "$(oh-my-posh --init --shell bash --config $HOME/.poshthemes/rudolfs-dark.omp.json)"
 ##################################################################
 
+##################################################################
 ### RUST
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 ##################################################################
 
+##################################################################
 ### ALIAS
 
-# None...
+# mpy-cross for CirquitPython
+alias mpy-cross="$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static"
 
 ##################################################################
 
+##################################################################
 ### KEYCHAIN (manager for ssh-agent)
 function addKeyToKeychain()
 {
