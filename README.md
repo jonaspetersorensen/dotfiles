@@ -50,8 +50,9 @@ All custom settings are stored in a separate file `.bashrc_extras` in order to k
 1. At the bottom of the file, add the following and save  
    NB! Make sure the path is correct for your system.
    ```sh
-   ### Extras
-   . ~/dev/dotfiles/configs/.bashrc_extras
+   ### dotfiles: shared settings
+   source "$HOME/dev/dotfiles/configs/.bashrc_dotfiles"
+   ### 
    ```
 1. Restart shell
 1. Done!
