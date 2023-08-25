@@ -10,6 +10,6 @@ fi
 
 echo "Install tools and libs..."
 echo "------------------------------------"
-sudo apt -qq install unzip jq build-essential tmux keychain linux-tools-virtual hwdata
+sudo apt -qq install unzip jq build-essential tmux keychain linux-tools-virtual hwdata x11-xserver-utils
 echo "------------------------------------"
 echo "All done!"
