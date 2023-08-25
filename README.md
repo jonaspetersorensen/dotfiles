@@ -19,6 +19,7 @@ Install and customization:
 - [WSL and GUI apps](#WSL-and-GUI-apps)
 - [Serial over USB](#serial-over-usb)
 - [Permissions for devices under `/dev/tty*`](#permissions-for-devices-under-devtty)
+- [Setting permissions after copying dirs between distros](#setting-permissions-after-copying-dirs-between-distros)
 
 Misc
 - [Docs](#docs)
