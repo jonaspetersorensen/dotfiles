@@ -271,3 +271,23 @@ ls -l /dev/ttyACM0
 # Add user to group. BEWARE: check group first, do not join root!
 sudo adduser $USER $(stat --format="%G" /dev/ttyACM0)
 ```
+
+
+## Setting permissions after copying dirs between distros
+
+Aka "why do the directory have a green background?"
+
+Apart from coloring files based on their type (turquoise for audio files, bright red for Archives and compressed files, and purple for images and videos), ls also colors files and directories based on their attributes:
+
+- Black text with green background indicates that a directory is writable by others apart from the owning user and group, and has the sticky bit set (o+w, +t).
+- Blue text with green background indicates that a directory is writable by others apart from the owning user and group, and does not have the sticky bit set (o+w, -t).
+
+A "de-greener" command to get back the rights,
+
+```sh
+chmod -R a-x,o-w,+X thatGreenFolderWithSubfolders/
+```
+
+Sources: 
+- [1 - What causes this green background in ls output? | stackexchange](https://unix.stackexchange.com/a/94505)
+- [1 - What causes this green background in ls output? | stackexchange](https://unix.stackexchange.com/a/333647)
