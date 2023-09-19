@@ -41,7 +41,7 @@ fi
 
 To make tmux read changes in the config file then you have two options:
 - Restart the tmux server `$  tmux kill-server` then restart a new tmux session
-- Reload the config file from inside tmux by `CTRL+B` then press `:` to bring up tmux command prompt and run `:source-file ~/.tmux.conf`
+- Reload the config file from inside tmux by `CTRL+B` then press `:` to bring up tmux command prompt and run `source-file ~/.tmux.conf`
 
 
 ### Mouse support
