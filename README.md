@@ -26,6 +26,7 @@ Misc
 
 
 ## Base installation
+
 1. Update to latest: `. ./scripts/update-all.sh`
 1. Install default tools: run script `. ./scripts/install-defaults.sh`
 1. Add custom settings to `.bashrc`, see [instructions](#how-to-customize-bashrc)
@@ -34,8 +35,6 @@ Misc
 1. [Install tmux](./tmux.md)  
    1. Then copy config file `./configs/.tmux.conf` to `~/.tmux.conf`
 
-Languages:
-- [Install rust](./rust.md)
 
 
 ## Docs
@@ -62,10 +61,11 @@ All custom settings are stored in a separate file `.bashrc_extras` in order to k
 ## How to manage ssh
 
 I use [keychain](https://www.funtoo.org/Funtoo:Keychain) for easier management of ssh keys.  
-Install and settings are handled by default install and bashrc extras.
+Install and configuration of keychain are handled by default install script and bashrc extras config file.  
+All you need to do is to prepare the ssh keys for usage:
 
 1. Copy keys to `~/.ssh`
-1. Set permissions: run script `. ./scripts/set-ssh-permissions.sh`
+1. Set required permissions: run script `. ./scripts/set-ssh-permissions.sh`
 1. Done!
 
 

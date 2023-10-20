@@ -1,5 +1,8 @@
 # TMUX
 
+`tmux` is installed by default by the install script.  
+Note that `tmux` package version seems to be linked to ubuntu version, meaning Ubuntu seems to not update their `tmux` package until they also create a new distro...
+
 ## .bashrc
 
 Add to `.bashrc_extras` to start up `mtux` with the current session name as tmux session name  
@@ -38,6 +41,9 @@ fi
 ```
 
 ## .tmux.conf
+
+
+### Reload config
 
 To make tmux read changes in the config file then you have two options:
 - Restart the tmux server `$  tmux kill-server` then restart a new tmux session

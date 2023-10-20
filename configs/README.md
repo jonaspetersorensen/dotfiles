@@ -11,3 +11,10 @@ All shared settings are stored in file [`.bashrc_dotfiles`](./.bashrc_dotfiles)
    source "$HOME/dev/dotfiles/configs/.bashrc_dotfiles"
    ### 
    ```
+
+## Other dot files
+
+Create/update symlinks to config files:
+
+1. TMUX: `ln -sf .tmux.conf "$HOME/.tmux.conf"`
+
