@@ -1,10 +1,16 @@
+##################################################################
+### START .bashrc_dotfiles
+##################################################################
+
+
 # In order to keep .bashrc as "clean" as possible I have separated out my own custom settings into this file.
 # Intended usage is to call this file at the end of .bashrc
+
 
 ##################################################################
 ### PATH
 export PATH="$HOME/.local/bin:$PATH"
-##################################################################
+
 
 ##################################################################
 ### TMUX
@@ -40,25 +46,31 @@ if [ ! -f "$HOME/TMUX_UPDATE_IN_PROGRESS" ]; then
 	fi
 
 fi
-##################################################################
+
+
 
 ##################################################################
 ### OH MY POSH
 eval "$(oh-my-posh --init --shell bash --config $HOME/.poshthemes/rudolfs-dark.omp.json)"
 ##################################################################
 
+
 ##################################################################
 ### RUST
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-##################################################################
+
+
 
 ##################################################################
 ### ALIAS
 
 # mpy-cross for CirquitPython
-alias mpy-cross="$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static"
+if [ -f "$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static" ] ; then
+	alias mpy-cross="$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static"
+fi
 
-##################################################################
+
+
 
 ##################################################################
 ### KEYCHAIN (manager for ssh-agent)
@@ -78,6 +90,10 @@ addKeyToKeychain "$HOME/.ssh/id_*"
 addKeyToKeychain "$HOME/.ssh/*_id_rsa"
 addKeyToKeychain "$HOME/.ssh/*.pem"
 source "$HOME/.keychain/$(hostname)-sh"
+
+
+##################################################################
+### END .bashrc_dotfiles
 ##################################################################
 
 
