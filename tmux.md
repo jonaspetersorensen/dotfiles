@@ -3,6 +3,13 @@
 `tmux` is installed by default by the install script.  
 Note that `tmux` package version seems to be linked to ubuntu version, meaning Ubuntu seems to not update their `tmux` package until they also create a new distro...
 
+## Table of Contents
+
+- [.bashrc](#bashrc)
+- [tmux config and mouse support](#tmuxconf)
+- [tmux shortcuts & cheatsheet](https://gist.github.com/MohamedAlaa/2961058)
+
+
 ## .bashrc
 
 Add to `.bashrc_extras` to start up `mtux` with the current session name as tmux session name  
