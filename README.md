@@ -176,10 +176,26 @@ WSL2 lives inside a virtual disk which is usually stored by windows in a `ext4.v
 This file will grow over time even if contents inside WSL2 are deleted. This "feature" is one of the small quirks of virtual file systems, they tend to eat up space on the host system usage over time goes up.  
 You can reclaim this space by trimming the `.vhdx` file.
 
+Sources:
 1. See post from [iuriguilherme](https://github.com/microsoft/WSL/issues/4699#issuecomment-1136319012)
 1. See post from [MS](https://learn.microsoft.com/en-us/windows/wsl/vhd-size)
 
-`optimize-vhd` require windows feature "virtual platform" to be installed.  
+
+Update 2023:  
+MS has updated WSL2 to automatically trim itself, and so far it seems to work on my system.  
+The exception is docker vhd which sometimes seems not to shrink and has to be handled manually:
+1. Prune docker, `docker system prune --all`
+2. Shutdown docker
+3. Open Windows Powershell in admin mode
+4. Shut down wsl `wsl --shutdown`
+5. Trim docker vhd `Optimize-VHD -Path "$env:LOCALAPPDATA\Docker\wsl\data\ext4.vhdx" -Mode Full`
+
+
+`optimize-vhd` require windows feature "virtual platform" to be installed:
+```sh
+Optimize-VHD -Path "$env:LOCALAPPDATA\Docker\wsl\data\ext4.vhdx" -Mode Full
+```
+
 `diskpart` is available in all windows distros, and can be used to shrink virtual drives like this:
 ```sh
 diskpart
