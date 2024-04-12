@@ -19,9 +19,9 @@ Install `usbipd-win`:
 1. Attach (or detach) device to wsl via **windows command prompt (admin)**:  
    ```sh
    # List all usb devices in windows
-   usbipd wsl list
+   usbipd list
    # Attach device with BUSID=x-x to default distro, and reattach when connection is lost (handy for arduino rebooting etc)
-   usbipd wsl attach --auto-attach --busid x-x
+   usbipd attach --wsl --auto-attach --busid x-x
    ```
 1. Verify that device is available in **linux shell**:  
    ```sh
@@ -30,3 +30,8 @@ Install `usbipd-win`:
 1. Done!
 
 Note: The device will automatically stop sharing if it is unplugged or the computer is restarted.
+
+
+### Update `usbpid-win` via Windows Packet Manager
+
+`winget install usbipd`
