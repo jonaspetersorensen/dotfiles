@@ -39,7 +39,7 @@ if [ ! -f "$HOME/TMUX_UPDATE_IN_PROGRESS" ]; then
 				SESSION_NAME="$TERMINAL_EMULATOR-$i"
 			fi
 
-			if (exec tmux new -s "$SESSION_NAME") ; then
+			if (exec tmux -u new -s "$SESSION_NAME") ; then
 				break
 			fi
 		done
