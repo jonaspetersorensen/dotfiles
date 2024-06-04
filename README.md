@@ -21,6 +21,7 @@ Install and customization:
 - [Permissions for devices under `/dev/tty*`](#permissions-for-devices-under-devtty)
 - [Setting permissions after copying dirs between distros](#setting-permissions-after-copying-dirs-between-distros)
 - [Troubleshooting WSL | Microsoft](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting)
+- [Kill WSL](#kill-wsl)
 
 Misc
 - [Docs](#docs)
@@ -309,3 +310,13 @@ chmod -R a-x,o-w,+X thatGreenFolderWithSubfolders/
 Sources: 
 - [1 - What causes this green background in ls output? | stackexchange](https://unix.stackexchange.com/a/94505)
 - [1 - What causes this green background in ls output? | stackexchange](https://unix.stackexchange.com/a/333647)
+
+## Kill WSL
+
+1. Open CMD with admin access
+1. Run the following commands:
+   ```sh
+   taskkill /F /FI "IMAGENAME eq wsl.exe"
+   taskkill /F /FI "IMAGENAME eq wslhost.exe"
+   taskkill /F /FI "IMAGENAME eq wslservice.exe"
+   ```
