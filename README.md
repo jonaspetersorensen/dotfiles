@@ -20,6 +20,7 @@ Install and customization:
 - [Serial over USB](#serial-over-usb)
 - [Permissions for devices under `/dev/tty*`](#permissions-for-devices-under-devtty)
 - [Setting permissions after copying dirs between distros](#setting-permissions-after-copying-dirs-between-distros)
+- [Troubleshooting WSL | Microsoft](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting)
 
 Misc
 - [Docs](#docs)
