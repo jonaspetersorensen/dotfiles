@@ -182,6 +182,15 @@ Sources:
 1. See post from [iuriguilherme](https://github.com/microsoft/WSL/issues/4699#issuecomment-1136319012)
 1. See post from [MS](https://learn.microsoft.com/en-us/windows/wsl/vhd-size)
 
+Update 2024:  
+WSL can automatically trim drives as long as the distro/volume has been set to `set-sparse=true`. The default setting is `false`.    
+How to turn it on: `wsl --manage docker-desktop --set-sparse true`  
+If you want to trim then do the following:
+1. Shutdown WSL
+2. Set sparse to false for the target distro, as trim cannot run when set to true
+3. Trim the target `*.vhdx` file(s)
+4. Set sparse to true again for the distro(s)
+5. Done!
 
 Update 2023:  
 MS has updated WSL2 to automatically trim itself, and so far it seems to work on my system.  
@@ -191,6 +200,7 @@ The exception is docker vhd which sometimes seems not to shrink and has to be ha
 3. Open Windows Powershell in admin mode
 4. Shut down wsl `wsl --shutdown`
 5. Trim docker vhd `Optimize-VHD -Path "$env:LOCALAPPDATA\Docker\wsl\data\ext4.vhdx" -Mode Full`
+6. Trim ubuntu vhd `Optimize-VHD -Path "$env:LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx" -Mode Full`
 
 
 `optimize-vhd` require windows feature "virtual platform" to be installed:
