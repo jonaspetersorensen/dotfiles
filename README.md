@@ -184,7 +184,7 @@ Sources:
 
 Update 2024:  
 WSL can automatically trim drives as long as the distro/volume has been set to `set-sparse=true`. The default setting is `false`.    
-How to turn it on: `wsl --manage docker-desktop --set-sparse true`  
+How to turn it on: `wsl --manage <distro> --set-sparse true`  
 If you want to trim then do the following:
 1. Shutdown WSL
 2. Set sparse to false for the target distro, as trim cannot run when set to true
