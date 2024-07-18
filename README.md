@@ -42,11 +42,12 @@ Misc
 ## Docs
 
 - [Connect USB device to WSL2 via network](./wsl-usb.md#Connect-USB-device-to-WSL2-via-network)
+- [Zig](./zig.md)
 
 
 ## How to customize .bashrc
 
-All custom settings are stored in a separate file `.bashrc_extras` in order to keep `.bashrc` as clean and default as possible (quite handy when handling lots of installs).
+All custom settings are stored in a separate file `.bashrc_dotfiles` in order to keep `.bashrc` as clean and default as possible (quite handy when handling lots of installs).
 
 1. Open `.bashrc` in an editor
 1. At the bottom of the file, add the following and save  
@@ -56,7 +57,7 @@ All custom settings are stored in a separate file `.bashrc_extras` in order to k
    source "$HOME/dev/dotfiles/configs/.bashrc_dotfiles"
    ### 
    ```
-1. Restart shell
+1. Reload shell
 1. Done!
 
 
