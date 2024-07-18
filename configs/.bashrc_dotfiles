@@ -9,7 +9,7 @@
 
 ##################################################################
 ### PATH
-export PATH="$HOME/.local/bin:$PATH"
+
 
 
 ##################################################################
@@ -65,9 +65,9 @@ eval "$(oh-my-posh --init --shell bash --config $HOME/.poshthemes/rudolfs-dark.o
 ### ALIAS
 
 # mpy-cross for CirquitPython
-if [ -f "$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static" ] ; then
-	alias mpy-cross="$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static"
-fi
+# if [ -f "$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static" ] ; then
+# 	alias mpy-cross="$HOME/.local/bin/mpy-cross-linux-amd64-8.2.0.static"
+# fi
 
 
 
