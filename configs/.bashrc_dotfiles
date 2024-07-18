@@ -71,7 +71,6 @@ eval "$(oh-my-posh --init --shell bash --config $HOME/.poshthemes/rudolfs-dark.o
 
 
 
-
 ##################################################################
 ### KEYCHAIN (manager for ssh-agent)
 function addKeyToKeychain()
@@ -90,6 +89,19 @@ addKeyToKeychain "$HOME/.ssh/id_*"
 addKeyToKeychain "$HOME/.ssh/*_id_rsa"
 addKeyToKeychain "$HOME/.ssh/*.pem"
 source "$HOME/.keychain/$(hostname)-sh"
+
+
+
+##################################################################
+### Zig
+
+if [ -d "$HOME/.local/zig" ]; then
+	export PATH="$PATH:$HOME/.local/zig"
+
+	if [ ! -f "$HOME/bin/zls" ]; then
+		echo "Binary for zig language server not found in expected dir $HOME/bin/"
+	fi
+fi
 
 
 ##################################################################
