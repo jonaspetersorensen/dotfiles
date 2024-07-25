@@ -30,8 +30,11 @@ For instructions with pictures, see https://www.ceos3c.com/wsl-2/windows-termina
   Configure: windows terminal settings, ubuntu profile, apperance, fonts
 - Theme: `~/.poshthemes/rudolfs-dark.omp.json`, [preview themes](https://ohmyposh.dev/docs/themes)  
   Configuration:  
-  1. Edit `.bashrc_dotfiles`
-  1. Add or edit link to theme 
+  1. Create dir for all themes: `mkdir ~/.local/poshthemes`
+  1. Download desired theme:  
+     1. `cd ~/.local/poshthemes`
+     1. `curl -OL https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/rudolfs-dark.omp.json` 
+  1. Add or edit link to theme to `.bashrc_dotfiles`
      ```sh
      ### OH MY POSH
      eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/rudolfs-dark.omp.json)"

@@ -51,7 +51,7 @@ fi
 
 ##################################################################
 ### OH MY POSH
-eval "$(oh-my-posh --init --shell bash --config $HOME/.poshthemes/rudolfs-dark.omp.json)"
+eval "$(oh-my-posh init bash --config $HOME/.local/poshthemes/rudolfs-dark.omp.json)"
 ##################################################################
 
 
@@ -107,5 +107,3 @@ fi
 ##################################################################
 ### END .bashrc_dotfiles
 ##################################################################
-
-

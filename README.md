@@ -29,22 +29,29 @@ Misc
 
 ## Base installation
 
+_Fix PATH in .profile_  
+In Ubuntu-22.04 they messed up the order of things so that required paths are not set until after `.bashrc` is executed.
+1. `nano ~/.profile`
+1. Find the block that starts with `# if running bash`
+1. Move that block so that it is the _last_ thing executed in the file (we want any PATH stuff to be above it)
+1. Save and reload shell
+
 _Configure ssh key for github and clone repo_  
 1. Create the dir for all ssh keys, `mkdir ~/.ssh`
 2. [Generating a new SSH key and adding it to the ssh-agent| Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 3. Start the ssh agent, run `ssh-agent`
 4. Add the private ssh key to the agent, example `ssh-add ~/.ssh/id_github_home`
-5. `mkdir ~/dev && cd ~/dev`
-6. Finally clone this repo
+5. Create development dir: `mkdir ~/dev && cd ~/dev`
+6. Finally clone this repo, the final path should be `~/dev/dotfiles`
 
-_Dotfiles and the rest_
-1. Update to latest: `. ./scripts/update-all.sh`
-1. Install default tools: run script `. ./scripts/install-defaults.sh`
-1. Add custom settings to `.bashrc`, see [instructions](#how-to-customize-bashrc)
+_Update and install defaults_
+1. Update to latest, run script: `. ~/dev/dotfiles/scripts/update-all.sh`
+1. Install default tools: run script: `. ~/dev/dotfiles/scripts/install-defaults.sh`
+1. Add custom settings to `~/.bashrc`, see [instructions](#how-to-customize-bashrc)
 1. [Add ssh keys](#how-to-manage-ssh)
 1. (WSL) [Install pretty shell](./oh-my-posh.md)
 1. [Install tmux](./tmux.md)  
-   1. Then copy config file `./configs/.tmux.conf` to `~/.tmux.conf`
+   1. Then copy config file `~/dev/dotfiles/configs/.tmux.conf` to `~/.tmux.conf`
 
 
 
