@@ -101,6 +101,10 @@ if [ -d "$HOME/.local/zig" ]; then
 	if [ ! -f "$HOME/bin/zls" ]; then
 		echo "Binary for zig language server not found in expected dir $HOME/bin/"
 	fi
+
+	if [ -f "$HOME/_zig.bash" ]; then
+		. "$HOME/_zig.bash"
+	fi
 fi
 
 

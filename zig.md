@@ -23,7 +23,18 @@ Zig comes as a directory with multiple files.
 1. Done!
 
 
+### Install shell-completions
+
+This tool is intended to provide autocomplete in the shell.  
+Different installs depending on shell.
+
+[Installation for bash](https://github.com/ziglang/shell-completions?tab=readme-ov-file#installation-for-bash)
+
+
 ### Install zig language server
+
+This tool is intended to provide autocomplete/intellisense for misc editors.  
+The same install goes for any editor.
 
 ZLS comes as a bin file.
 
