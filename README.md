@@ -29,6 +29,15 @@ Misc
 
 ## Base installation
 
+_Configure ssh key for github and clone repo_  
+1. Create the dir for all ssh keys, `mkdir ~/.ssh`
+2. [Generating a new SSH key and adding it to the ssh-agent| Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+3. Start the ssh agent, run `ssh-agent`
+4. Add the private ssh key to the agent, example `ssh-add ~/.ssh/id_github_home`
+5. `mkdir ~/dev && cd ~/dev`
+6. Finally clone this repo
+
+_Dotfiles and the rest_
 1. Update to latest: `. ./scripts/update-all.sh`
 1. Install default tools: run script `. ./scripts/install-defaults.sh`
 1. Add custom settings to `.bashrc`, see [instructions](#how-to-customize-bashrc)
