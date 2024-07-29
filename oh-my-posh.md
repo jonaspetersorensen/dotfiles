@@ -17,6 +17,7 @@ Use case is WSL + Windows Terminal
    1. Open to tab "Apperance"
    1. Set font to `MesloLGM Nerd Font`
    1. Enable `Show all fonts`
+   1. Set color scheme to be `Solarized Dark` 
    1. Save profile
    1. Restart terminal
 1. Done!
