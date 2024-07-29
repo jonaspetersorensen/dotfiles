@@ -39,7 +39,7 @@ In Ubuntu-22.04 they messed up the order of things so that required paths are no
 _Configure ssh key for github and clone repo_  
 1. Create the dir for all ssh keys, `mkdir ~/.ssh`
 2. [Generating a new SSH key and adding it to the ssh-agent| Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-3. Start the ssh agent, run `ssh-agent`
+3. Start the ssh agent, run `eval $(ssh-agent -s)`
 4. Add the private ssh key to the agent, example `ssh-add ~/.ssh/id_github_home`
 5. Create development dir: `mkdir ~/dev && cd ~/dev`
 6. Finally clone this repo, the final path should be `~/dev/dotfiles`
