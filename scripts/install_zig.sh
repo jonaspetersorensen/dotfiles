@@ -146,10 +146,14 @@ function print_bashrc_instructions() {
     printf "%b\n" '### Zig'
     printf "%b\n" 'if [ -d "$HOME/.local/zig/release" ]; then'
     printf "%b\n" '	export PATH="$PATH:$HOME/.local/zig/release"'
+    
     printf "%b\n" ''
-    printf "%b\n" '	if [ ! -f "$HOME/.local/zig/language_server/zls" ]; then'
-    printf "%b\n" '		echo "Binary for zig language server not found in expected dir $HOME/bin/"'
+    printf "%b\n" '	if [ -f "$HOME/.local/zig/language_server/zls" ]; then'
+    printf "%b\n" '		export PATH="$PATH:$HOME/.local/zig/language_server"'
+    printf "%b\n" '	else'
+    printf "%b\n" '		echo "Binary for zig language server not found in expected dir $HOME/.local/zig/language_server"'
     printf "%b\n" '	fi'
+    
     printf "%b\n" ''
     printf "%b\n" '	if [ -f "$HOME/.local/zig/_zig.bash" ]; then'
     printf "%b\n" '		. "$HOME/.local/zig/_zig.bash"'
@@ -191,5 +195,3 @@ print_bashrc_instructions
 printf "\n%b\n" "${DIALOG_MARGIN}And finally reload the shell."
 
 printf "\n%b\n" "${DIALOG_MARGIN}SCRIPT DONE!"
-
-
