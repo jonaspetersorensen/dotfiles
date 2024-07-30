@@ -58,7 +58,6 @@ _Update and install defaults_
 ## Docs
 
 - [Connect USB device to WSL2 via network](./wsl-usb.md#Connect-USB-device-to-WSL2-via-network)
-- [Zig](./zig.md)
 - [How to manage WSL disk space | Microsoft](https://learn.microsoft.com/en-us/windows/wsl/disk-space)  
   Very nice doc for handling some of the weird errors you see once in a lifetime
 
