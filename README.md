@@ -348,3 +348,26 @@ Sources:
    taskkill /F /FI "IMAGENAME eq wslhost.exe"
    taskkill /F /FI "IMAGENAME eq wslservice.exe"
    ```
+
+## Corrupted VHD
+
+Once in a blue moon you will see a system error message containing "Read-only file system" when running normal operations that should work.
+This is usually down to corrupted VHD, and for Ubuntu in particular that is `/dev/sdb`.
+
+The linux tool `e2fsck` can fix this as long as it can work _outside_ the VHD. Meaning you cannot run it properly from inside the distro that has a bad VHD.  
+The workaround is to use another distro for this task.
+
+Example:  
+I have two distros installed:
+- Ubuntu
+- docker-desktop
+
+"Ubuntu" is the distro that has a bad VHD. I can then use "docker-desktop" to fix that VHD.
+
+1. Shutdown all wsl distros: `wsl --shutdown`
+1. Mount the VHD: `wsl --mount <LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\LocalState\>ext4.vhdx --vhd --bare`
+1. Fix the VHD from the other distro: `wsl -d docker-desktop -u root e2fsck -f -y /dev/sdc`
+1. Unmount when done: `wsl --unmount <LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\LocalState\>ext4.vhdx`
+1. Done!
+
+Source: [how-to-repair-a-vhd-mounting-error? the tutorial not work at all! | wsl git issue](https://github.com/microsoft/WSL/issues/10169#issuecomment-1581863587)
