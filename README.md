@@ -20,6 +20,7 @@ Install and customization:
 - [Serial over USB](#serial-over-usb)
 - [Permissions for devices under `/dev/tty*`](#permissions-for-devices-under-devtty)
 - [Setting permissions after copying dirs between distros](#setting-permissions-after-copying-dirs-between-distros)
+- [Fix corrupt VHD](#fix-corrupted-vhd)
 - [Troubleshooting WSL | Microsoft](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting)
 - [Kill WSL](#kill-wsl)
 
@@ -349,7 +350,7 @@ Sources:
    taskkill /F /FI "IMAGENAME eq wslservice.exe"
    ```
 
-## Corrupted VHD
+## Fix Corrupted VHD
 
 Once in a blue moon you will see a system error message containing "Read-only file system" when running normal operations that should work.
 This is usually down to corrupted VHD, and for Ubuntu in particular that is `/dev/sdb`.
