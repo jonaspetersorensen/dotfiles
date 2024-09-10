@@ -366,7 +366,7 @@ I have two distros installed:
 "Ubuntu" is the distro that has a bad VHD. I can then use "docker-desktop" to fix that VHD.
 
 1. Shutdown all wsl distros: `wsl --shutdown`
-1. Mount the VHD: `wsl --mount <LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\LocalState\>ext4.vhdx --vhd --bare`
+1. Mount the VHD: `wsl --mount %LOCALAPPDATA%\Packages\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx --vhd --bare`
 1. Fix the VHD from the other distro: `wsl -d docker-desktop -u root e2fsck -f -y /dev/sdc`
 1. Unmount when done: `wsl --unmount <LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\LocalState\>ext4.vhdx`
 1. Done!
