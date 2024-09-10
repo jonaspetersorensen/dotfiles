@@ -368,7 +368,7 @@ I have two distros installed:
 1. Shutdown all wsl distros: `wsl --shutdown`
 1. Mount the VHD: `wsl --mount %LOCALAPPDATA%\Packages\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx --vhd --bare`
 1. Fix the VHD from the other distro: `wsl -d docker-desktop -u root e2fsck -f -y /dev/sdc`
-1. Unmount when done: `wsl --unmount <LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\LocalState\>ext4.vhdx`
+1. Unmount when done: `wsl --unmount %LOCALAPPDATA%\Packages\CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx`
 1. Done!
 
 Source: [how-to-repair-a-vhd-mounting-error? the tutorial not work at all! | wsl git issue](https://github.com/microsoft/WSL/issues/10169#issuecomment-1581863587)
