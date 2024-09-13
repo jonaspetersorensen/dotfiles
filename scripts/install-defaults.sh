@@ -3,7 +3,9 @@
 # USB/IP info: https://github.com/dorssel/usbipd-win/wiki/WSL-support 
 # - WSL client tools: linux-tools-virtual hwdata
 
-file=./update-all.sh
+WORK_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+file="${WORK_DIR}/update-all.sh"
 if [ -f "$file" ]; then
   source "$file"
 fi
