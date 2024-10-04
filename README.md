@@ -52,7 +52,10 @@ _Update and install defaults_
 1. [Add ssh keys](#how-to-manage-ssh)
 1. (WSL) [Install pretty shell](./oh-my-posh.md)
 1. [Install tmux](./tmux.md)  
-   1. Then copy config file `~/dev/dotfiles/configs/.tmux.conf` to `~/.tmux.conf`
+   1. Then symlink config file `~/dev/dotfiles/configs/.tmux.conf` to `~/.tmux.conf`  
+      ```sh
+       ln -sf ~/dev/dotfiles/configs/.tmux.conf ~/.tmux.conf
+      ```
 
 
 
