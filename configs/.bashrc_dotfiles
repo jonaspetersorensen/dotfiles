@@ -96,7 +96,8 @@ source "$HOME/.keychain/$(hostname)-sh"
 ### Zig
 
 if [ -d "$HOME/.local/zig" ]; then
-
+	export PATH="$PATH:$HOME/.local/zig"
+	
 	if [ -f "$HOME/.local/zig/_zig.bash" ]; then
 		. "$HOME/.local/zig/_zig.bash"
 	else
