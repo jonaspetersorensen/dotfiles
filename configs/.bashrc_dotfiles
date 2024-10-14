@@ -95,14 +95,8 @@ source "$HOME/.keychain/$(hostname)-sh"
 ##################################################################
 ### Zig
 
-if [ -d "$HOME/.local/zig/release" ]; then
-	export PATH="$PATH:$HOME/.local/zig/release"
-
-	if [ -f "$HOME/.local/zig/language_server/zls" ]; then
-		export PATH="$PATH:$HOME/.local/zig/language_server"
-	else
-		echo "Binary for zig language server not found in expected dir $HOME/.local/zig/language_server"
-	fi
+if [ -d "$HOME/.local/zig" ]; then
+	export PATH="$PATH:$HOME/.local/zig"
 
 	if [ -f "$HOME/.local/zig/_zig.bash" ]; then
 		. "$HOME/.local/zig/_zig.bash"

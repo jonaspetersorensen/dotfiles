@@ -1,10 +1,12 @@
 #!/bin/bash
 
 ZIG_ENV_PATH="$HOME/.local/zig"
-ZIG_ENV_RELEASE_PATH="${ZIG_ENV_PATH}/release"
-ZIG_ENV_LANGUAGE_SERVER_PATH="${ZIG_ENV_PATH}/language_server"
+ZIG_ENV_RELEASE_PATH="${ZIG_ENV_PATH}"
+ZIG_ENV_LANGUAGE_SERVER_PATH="${ZIG_ENV_PATH}"
 ZIG_ENV_SHELL_COMPLETION_PATH="${ZIG_ENV_PATH}"
 ZIG_TMP_PATH="$HOME/tmp_zig_install"
+ZIG_RELEASE_INDEX_URL="https://ziglang.org/download/"
+ZIG_LANG_SERVER_RELEASE_INDEX_URL="https://github.com/zigtools/zls/releases"
 
 DIALOG_MARGIN="   "
 HEADER_PREFIX="-- "
@@ -14,9 +16,9 @@ function create_zig_environment () {
     if [ ! -d "${ZIG_ENV_PATH}" ]; then
         printf "%b"  "${DIALOG_SUBLIST_MARKER}"
         printf "%b" "Creating zig environment in ${ZIG_ENV_PATH}... "
-        mkdir "${ZIG_ENV_PATH}"
-        mkdir "${ZIG_ENV_RELEASE_PATH}"
-        mkdir "${ZIG_ENV_LANGUAGE_SERVER_PATH}"  
+        mkdir -p "${ZIG_ENV_PATH}"
+        mkdir -p "${ZIG_ENV_RELEASE_PATH}"
+        mkdir -p "${ZIG_ENV_LANGUAGE_SERVER_PATH}"  
         printf "%b\n" "Done."      
     else
         printf "%b\n" "${DIALOG_MARGIN}Zig environment found. Starting clean-up: "
@@ -66,8 +68,8 @@ function install_language () {
     local FILE_AND_SUFFIX=""
     local FILENAME=""
     local DIR_NAME=""
-
-    printf "%b\n" "${DIALOG_SUBLIST_MARKER}Step 1: Open zig download page and copy the url to the desired version, https://ziglang.org/download/"
+    
+    printf "%b\n" "${DIALOG_SUBLIST_MARKER}Step 1: Open zig download page and copy the url to the desired version, ${ZIG_RELEASE_INDEX_URL}"
     printf "%b" "${DIALOG_SUBLIST_MARKER}Step 2: Paste url here + ENTER: "
     read DOWNLOAD_URL
     exit_if_invalid_url "${DOWNLOAD_URL}"
@@ -91,7 +93,7 @@ function install_language_server () {
     local FILE_AND_SUFFIX=""
     local FILENAME=""
 
-    printf "%b\n" "${DIALOG_SUBLIST_MARKER}Step 1: Open zig language server download page and copy the url to the desired version (must match zig version), https://github.com/zigtools/zls/releases"
+    printf "%b\n" "${DIALOG_SUBLIST_MARKER}Step 1: Open zig language server download page and copy the url to the desired version (must match zig version), ${ZIG_LANG_SERVER_RELEASE_INDEX_URL}"
     printf "%b" "${DIALOG_SUBLIST_MARKER}Step 2: Paste url here + ENTER: "
     read DOWNLOAD_URL
     exit_if_invalid_url "${DOWNLOAD_URL}"
@@ -144,21 +146,20 @@ function exit_if_invalid_url() {
 function print_bashrc_instructions() {
     printf "%b\n" '##################################################################'
     printf "%b\n" '### Zig'
-    printf "%b\n" 'if [ -d "$HOME/.local/zig/release" ]; then'
-    printf "%b\n" '	export PATH="$PATH:$HOME/.local/zig/release"'
-    
-    printf "%b\n" ''
-    printf "%b\n" '	if [ -f "$HOME/.local/zig/language_server/zls" ]; then'
-    printf "%b\n" '		export PATH="$PATH:$HOME/.local/zig/language_server"'
-    printf "%b\n" '	else'
-    printf "%b\n" '		echo "Binary for zig language server not found in expected dir $HOME/.local/zig/language_server"'
-    printf "%b\n" '	fi'
+    printf "%b\n" 'if [ -d "$HOME/.local/zig" ]; then'
+    printf "%b\n" '	export PATH="$PATH:$HOME/.local/zig"'
     
     printf "%b\n" ''
     printf "%b\n" '	if [ -f "$HOME/.local/zig/_zig.bash" ]; then'
     printf "%b\n" '		. "$HOME/.local/zig/_zig.bash"'
     printf "%b\n" '	fi'
     printf "%b\n" 'fi'
+}
+
+function print_versions_instructions() {
+    printf "\n%b\n" "The language server version has to match the zig version."
+    printf "\n%b\n" "Unfortunately the server is released at a slower pace than the language, so make sure to check which version is available before installing zig:"
+    printf "\n%b\n" "- Zig Language Server: ${ZIG_LANG_SERVER_RELEASE_INDEX_URL}"
 }
 
 
