@@ -147,7 +147,6 @@ function print_bashrc_instructions() {
     printf "%b\n" '##################################################################'
     printf "%b\n" '### Zig'
     printf "%b\n" 'if [ -d "$HOME/.local/zig" ]; then'
-    printf "%b\n" '	export PATH="$PATH:$HOME/.local/zig"'
     
     printf "%b\n" ''
     printf "%b\n" '	if [ -f "$HOME/.local/zig/_zig.bash" ]; then'
