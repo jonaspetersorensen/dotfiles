@@ -129,6 +129,17 @@ The fix is to recreate the links in windows, then update links in wsl like so:
    del libcuda.so.1
    mklink libcuda.so libcuda.so.1.1
    mklink libcuda.so.1 libcuda.so.1.1
+
+   # If you run into permission trouble then first make sure you are using CMD in Administrator mode.
+   # If still no-go, open explorer.exe and attempt to delete the file there, as you will get a different error message:
+   # Open explorer at current location
+   explorer.exe .
+   # Usually it turns out to be TrustedInstaller that is the owner.
+   # First take ownership of the file
+   takeown /f libcuda.so
+   # Then give admins the rights to change it
+   icacls libcuda.so /grant Administrators:F /T
+   # ...And now you should be able to delete and recreate the links as described above
    ```
 2. Open WSL bash
    ```sh
