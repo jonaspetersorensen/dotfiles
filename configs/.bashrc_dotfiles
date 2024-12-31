@@ -91,6 +91,12 @@ addKeyToKeychain "$HOME/.ssh/*.pem"
 source "$HOME/.keychain/$(hostname)-sh"
 
 
+##################################################################
+### PULSE AUDIO fix
+
+# WSLg support audio via pulse audio, but for some reason the required environment variable is missing
+export PULSE_SERVER=unix:/mnt/wslg/PulseServer
+
 
 ##################################################################
 ### Zig
