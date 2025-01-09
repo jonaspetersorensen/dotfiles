@@ -309,10 +309,12 @@ Connect minicom to device:
 This comes into play when you want to access misc USB stuff or other devices.  
 The `/dev` directory is recreated at every boot, so any settings via `chmod` will vanish.  
 
+In late 2023 MS enabled `systemd` by default for WSL2, which means we should no longer run into problems with permissions.
+
+PRE 2023 UPDATE (systemd is not running) INFO:  
 Normally the group `dialout` should be the owner for serial devices.  
 Unfortunately there is a bug in WSL2 where group `root` is the only owner, ref [microsoft/WSL/issues/9247](https://github.com/microsoft/WSL/issues/9247).  
 Use `chmod` option until fixed in WSL to avoid breaking stuff.
-
 
 ### Option: Use chmod before every time you want to use the device  
 
