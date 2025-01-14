@@ -99,8 +99,9 @@ export PULSE_SERVER=unix:/mnt/wslg/PulseServer
 
 
 ##################################################################
-### Zig
+### UPDATE PATH
 
+# zig
 if [ -d "$HOME/.local/zig" ]; then
 	export PATH="$PATH:$HOME/.local/zig"
 	
@@ -109,6 +110,11 @@ if [ -d "$HOME/.local/zig" ]; then
 	else
 		echo "ERROR - ZIG: Cannot find $HOME/.local/zig/_zig.bash"
 	fi
+fi
+
+# ffmpeg
+if [ -d "$HOME/.local/ffmpeg" ]; then
+	export PATH="$PATH:$HOME/.local/ffmpeg"
 fi
 
 
