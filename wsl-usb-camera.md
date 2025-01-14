@@ -8,6 +8,7 @@ Sources:
 - [WSL2-USB-Camera | Tutorial](https://github.com/randomwons/WSL2-USB-Camera)
 - [WSL2-Linux-Kernel | Official repo](https://github.com/microsoft/WSL2-Linux-Kernel)
 - [wslu - A collection of utilities for WSL | repo](https://github.com/wslutilities/wslu)
+- [asciicam](https://www.makeuseof.com/asciicam-display-webcam-in-linux-terminal/) - For testing video feed in terminal
 
 
 ## Update WSL2 Kernel
