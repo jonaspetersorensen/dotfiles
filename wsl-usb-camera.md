@@ -64,13 +64,13 @@ Copy bzImage to Host PC(windows)
 
 ```bash
 HOST_USERNAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f5) 
-sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/usbip-bzImage
+sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/usb-media-bzImage
 ```
 
 Set C:/Users/${HOST_USERNAME}/.wslconfig
 ```bash
 [wsl2]
-kernel=path_to_image # example kernel=C:\\Users\\{HOSTNAME}\\usbip-bzImage
+kernel=path_to_image # example kernel=C:\\Users\\{HOSTNAME}\\usb-media-bzImage
 ```
 
 Restart wsl
