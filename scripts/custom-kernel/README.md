@@ -1,4 +1,4 @@
-# Enable USB cameras for WSL
+# How to build a custom WSL kernel
 
 Microsoft has not enabled the media drivers in WSL kernel that are required for making most, if not all, usb cameras work.  
 To enable them you will have to build your own kernel, and this is a guide how to.
