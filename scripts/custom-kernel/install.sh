@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script is focused on building a WSL kernel that has support for USB camera.
+
 # Update and upgrade the system
 sudo apt -y update
 sudo apt -y upgrade
@@ -41,10 +43,10 @@ sudo make install -j$(nproc)
 # Copy libusbip.so.0 to /lib
 sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
 
-# Copy kerner image to Windows
+# Copy kernel image to Windows
 cd ../../..
 HOST_USERNAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f5)
-sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/usbip-bzImage
+sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/custom-wsl-kernel-bzImage
 
 echo "[wsl2]" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
-echo "kernel=C:\\\\Users\\\\${HOST_USERNAME}\\\\usbip-bzImage" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
+echo "kernel=C:\\\\Users\\\\${HOST_USERNAME}\\\\custom-wsl-kernel-bzImage" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
