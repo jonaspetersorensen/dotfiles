@@ -4,6 +4,9 @@ Simple dotfile repo for my short lived installations, mainly in wsl2 + ubuntu.
 That said, this repo is more for misc install instructions, as a pure dotfile repo where I simply copy the same dotfiles to new installs does
 not always work that well for me due to the particulars of any given system and use case.
 
+NB!  
+[Ubuntu 24.04 + WSLg where some files are not created for the ubuntu user (uid 1000) causing Wayland to fall back to X11](https://stackoverflow.com/questions/79151910/how-to-fix-errors-in-wsl-gui)
+
 
 ## Table of Contents
 
