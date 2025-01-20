@@ -11,6 +11,7 @@ Install and customization:
 - [Base installation](#base-installation)
 - [How to customize .bashrc](#how-to-customize-bashrc)
 - [How to manage ssh](#how-to-manage-ssh)
+- [How to build a custom kernel](./scripts/custom-kernel/)
 - [Graphics and CUDA support](#graphics-and-cuda-support)
   - [Docker + CUDA](#docker--cuda)
 - [Docker](#docker)
