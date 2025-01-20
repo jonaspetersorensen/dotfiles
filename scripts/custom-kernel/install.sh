@@ -2,6 +2,23 @@
 
 # This script is focused on building a WSL kernel that has support for USB camera.
 
+
+# Configure tmp dir for this task
+CURRENT_DIR="$(pwd)"
+WORK_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+WORK_DIR="${WORK_DIR}/tmp"
+echo "workdir=$WORK_DIR"
+
+if [ -d "${WORK_DIR}" ]; then
+    rm -rf "${WORK_DIR}"
+    mkdir "${WORK_DIR}"
+else
+    mkdir "${WORK_DIR}"
+fi
+cd "${WORK_DIR}"
+
+
+
 # Update and upgrade the system
 sudo apt -y update
 sudo apt -y upgrade
@@ -48,5 +65,18 @@ cd ../../..
 HOST_USERNAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f5)
 sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/custom-wsl-kernel-bzImage
 
-echo "[wsl2]" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
-echo "kernel=C:\\\\Users\\\\${HOST_USERNAME}\\\\custom-wsl-kernel-bzImage" >> /mnt/c/Users/${HOST_USERNAME}/.wslconfig
+# Add .wslconfig to instruct Windows to load new kernel.
+# Previous config file will be removed
+if [ -f "/mnt/c/Users/${HOST_USERNAME}/.wslconfig" ]; then
+    rm -rf "/mnt/c/Users/${HOST_USERNAME}/.wslconfig"
+fi
+echo "[wsl2]" >> "/mnt/c/Users/${HOST_USERNAME}/.wslconfig"
+echo "kernel=C:\\\\Users\\\\${HOST_USERNAME}\\\\custom-wsl-kernel-bzImage" >> "/mnt/c/Users/${HOST_USERNAME}/.wslconfig"
+
+
+# Clean up
+cd "${CURRENT_DIR}"
+sudo rm -rf "${WORK_DIR}"
+echo "Custom kernel built, moved to windows user space and created a new .wslconfig"
+echo "Please restart wsl, wsl --shutdown, wait 10s then restart wsl"
+echo "Use command uname --all and look at built time to verify that the new kernel is loaded".
