@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # This script is focused on building a WSL kernel that has support for USB camera.
+# A modified version of the same install script found at https://github.com/randomwons/WSL2-USB-Camera
 
 
 # Configure tmp dir for this task
