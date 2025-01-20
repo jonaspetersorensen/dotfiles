@@ -17,20 +17,27 @@ DIALOG_SUBLIST_MARKER="${DIALOG_MARGIN}+ "
 
 
 function install_packages(){
-    sudo apt install -y "${PACKAGES}"
+    sudo apt -y update
+    sudo apt install -y ${PACKAGES}
 }
 
 function remove_packages(){
-    sudo apt remove -y "${PACKAGES}"
+    sudo apt remove -y ${PACKAGES}
+    sudo apt -y autoremove
 }
 
-function ask_user_continue_or_exit () {
-    printf "${DIALOG_MARGIN}What do you want to do? (i)nstall | (r)emove | (e)xit"
+function ask_user_or_exit () {
+    printf "${DIALOG_MARGIN}What do you want to do? (i)nstall | (r)emove | (e)xit : "
     read USER_OK
     case "$USER_OK" in
         "i" | "I" | "install" | "Install")
             printf "\n%b\n" "${DIALOG_MARGIN}Installing..."
             install_packages
+            ;;
+
+        "r" | "R" | "remove" | "Remove")
+            printf "\n%b\n" "${DIALOG_MARGIN}Removing..."
+            remove_packages            
             ;;
 
         "e" | "E" | "exit" | "Exit")
@@ -43,3 +50,14 @@ function ask_user_continue_or_exit () {
             ;;
     esac
 }
+
+
+############################################################################################################
+## MAIN
+
+printf "%b\n" "-------------------------------------------------------"
+printf "%b\n" "-- Install or remove GStreamer and related tooling --"
+printf "%b\n" "   "
+
+ask_user_or_exit
+printf "\n%b\n" "${DIALOG_MARGIN}Done."
