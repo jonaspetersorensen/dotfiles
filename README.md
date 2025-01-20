@@ -5,7 +5,8 @@ That said, this repo is more for misc install instructions, as a pure dotfile re
 not always work that well for me due to the particulars of any given system and use case.
 
 NB!  
-[Ubuntu 24.04 + WSLg where some files are not created for the ubuntu user (uid 1000) causing Wayland to fall back to X11](https://stackoverflow.com/questions/79151910/how-to-fix-errors-in-wsl-gui)
+- [Ubuntu 24.04 + WSLg where some files are not created for the ubuntu user (uid 1000) causing Wayland to fall back to X11](https://stackoverflow.com/questions/79151910/how-to-fix-errors-in-wsl-gui)
+- [After Ubuntu 24.04 upgrade, GUI apps are extremely slow to open #1250](https://github.com/microsoft/wslg/issues/1250)
 
 
 ## Table of Contents
