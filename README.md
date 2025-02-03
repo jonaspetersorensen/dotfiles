@@ -51,8 +51,8 @@ _Configure ssh key for github and clone repo_
 6. Finally clone this repo, the final path should be `~/dev/dotfiles`
 
 _Update and install defaults_
-1. Update to latest, run script: `. ~/dev/dotfiles/scripts/update-all.sh`
-1. Install default tools: run script: `. ~/dev/dotfiles/scripts/install-defaults.sh`
+1. Update to latest, run script: `. ~/dev/dotfiles/scripts/update_all.sh`
+1. Install default tools: run script: `. ~/dev/dotfiles/scripts/install_defaults.sh`
 1. Add custom settings to `~/.bashrc`, see [instructions](#how-to-customize-bashrc)
 1. [Add ssh keys](#how-to-manage-ssh)
 1. (WSL) [Install pretty shell](./oh-my-posh.md)
