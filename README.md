@@ -18,6 +18,7 @@ Install and customization:
 - [How to build a custom kernel](./scripts/custom-kernel/)
 - [Graphics and CUDA support](#graphics-and-cuda-support)
   - [Docker + CUDA](#docker--cuda)
+- [Desktop](#desktop)
 - [Docker](#docker)
 - [Compacting to free up space](#compacting-to-free-up-space)
 - [Mount external and network drives](#mount-external-and-network-drives)
@@ -62,6 +63,16 @@ _Update and install defaults_
        ln -sf ~/dev/dotfiles/configs/.tmux.conf ~/.tmux.conf
       ```
 
+## Desktop
+
+You most likely will require a few extra utils to be able to run typical desktop apps.  
+This has only been tested in Ubunty 22.04.
+```sh
+# Install desktop tooling for WSL
+sudo apt install desktop-file-utils xdg-utils
+# Install FUSE (required by AppImage)
+sudo apt install libfuse2
+```
 
 
 ## Docs
