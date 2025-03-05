@@ -220,6 +220,12 @@ Fix:
    1. In windows, open a cmd as admin and run `wslconfig.exe /u docker-desktop`
 1. Start docker desktop
 
+### Reclaim docker space
+
+Run a container (provided by Docker themselves) to send TRIM commands to the hardware abstraction layer:
+```sh
+docker run --rm --privileged --pid=host docker/desktop-reclaim-space
+```
 
 ## Compacting to free up space
 
