@@ -228,50 +228,11 @@ docker run --rm --privileged --pid=host docker/desktop-reclaim-space
 ```
 
 ## Compacting to free up space
+2025:  
+WSL can automatically trim drives, see post from [MS](https://learn.microsoft.com/en-us/windows/wsl/vhd-size)
 
-WSL2 lives inside a virtual disk which is usually stored by windows in a `ext4.vhdx` file.  
-This file will grow over time even if contents inside WSL2 are deleted. This "feature" is one of the small quirks of virtual file systems, they tend to eat up space on the host system usage over time goes up.  
-You can reclaim this space by trimming the `.vhdx` file.
+Docker can still be "special", see docker notes for how to use a special image to send trim command to the host.
 
-Sources:
-1. See post from [iuriguilherme](https://github.com/microsoft/WSL/issues/4699#issuecomment-1136319012)
-1. See post from [MS](https://learn.microsoft.com/en-us/windows/wsl/vhd-size)
-
-Update 2024:  
-WSL can automatically trim drives as long as the distro/volume has been set to `set-sparse=true`. The default setting is `false`.    
-How to turn it on: `wsl --manage <distro> --set-sparse true`  
-If you want to trim then do the following:
-1. Shutdown WSL
-2. Set sparse to false for the target distro, as trim cannot run when set to true
-3. Trim the target `*.vhdx` file(s)
-4. Set sparse to true again for the distro(s)
-5. Done!
-
-Update 2023:  
-MS has updated WSL2 to automatically trim itself, and so far it seems to work on my system.  
-The exception is docker vhd which sometimes seems not to shrink and has to be handled manually:
-1. Prune docker, `docker system prune --all`
-2. Shutdown docker
-3. Open Windows Powershell in admin mode
-4. Shut down wsl `wsl --shutdown`
-5. Trim docker vhd `Optimize-VHD -Path "$env:LOCALAPPDATA\Docker\wsl\data\ext4.vhdx" -Mode Full`
-6. Trim ubuntu vhd `Optimize-VHD -Path "$env:LOCALAPPDATA\Packages\CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx" -Mode Full`
-
-
-`optimize-vhd` require windows feature "virtual platform" to be installed:
-```sh
-Optimize-VHD -Path "$env:LOCALAPPDATA\Docker\wsl\data\ext4.vhdx" -Mode Full
-```
-
-`diskpart` is available in all windows distros, and can be used to shrink virtual drives like this:
-```sh
-diskpart
-select vdisk file="C:\Users\<user>\AppData\local\Docker\wsl\data\ext4.vhdx"
-attach vdisk readonly
-compact vdisk
-detach vdisk
-exit
-```
 
 ## Mount external and network drives
 
