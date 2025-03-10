@@ -7,11 +7,14 @@
 ## DOCS
 # - https://www.johnvansickle.com/ffmpeg/faq/
 
-
-VERSION_NAME="ffmpeg-git-amd64-static"
+VERSION_NAME="ffmpeg-git-amd64-static" #"ffmpeg-7.0.2-amd64-static"
 LOCAL_NAME="ffmpeg"
 TAR_FILENAME="${VERSION_NAME}.tar.xz"
-DOWNLOAD_URL="https://johnvansickle.com/ffmpeg/builds/${TAR_FILENAME}"
+DOWNLOAD_URL="https://johnvansickle.com/ffmpeg/releases/${TAR_FILENAME}"
+# git master build has a different download url than releases
+if [[ "${TAR_FILENAME}" == *"-git-"* ]]; then
+    DOWNLOAD_URL="https://johnvansickle.com/ffmpeg/builds/${TAR_FILENAME}"
+fi
 BIN_DIR="$HOME/.local"
 TMP_DIR="$HOME/tmp"
 
