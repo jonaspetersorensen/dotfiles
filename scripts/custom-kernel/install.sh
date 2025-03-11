@@ -64,7 +64,7 @@ sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
 # Copy kernel image to Windows
 cd ../../..
 HOST_USERNAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f5)
-sudo cp arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/custom-wsl-kernel-bzImage
+sudo cp -f arch/x86/boot/bzImage /mnt/c/Users/${HOST_USERNAME}/custom-wsl-kernel-bzImage
 
 # Add .wslconfig to instruct Windows to load new kernel.
 # Previous config file will be removed
